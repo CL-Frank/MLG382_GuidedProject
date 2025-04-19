@@ -12,7 +12,7 @@ from dash import Dash, html, dcc, Input, Output
 from functools import lru_cache
 import dash_bootstrap_components as dbc
 
-file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
+file_path = os.path.join(os.path.dirname(__file__), '..', 'artifacts', 'features.pkl')
 
 @lru_cache(maxsize=1)
 def get_DLmodel():
@@ -25,16 +25,16 @@ def get_DLmodel():
 with open(file_path, 'rb') as f:
     features = pickle.load(f)
 
-with open(r'../notebooks/scaler.pkl', 'rb') as f:
+with open(file_path, 'rb') as f:
     scaler = pickle.load(f)
 
-with open(r'../artifacts/rf_model.pkl', 'rb') as f:
+with open(file_path, 'rb') as f:
     randomforest_model = joblib.load(f)
 
-with open(r'../artifacts/lr_model.pkl', 'rb') as f:
+with open(file_path, 'rb') as f:
     regression_model = joblib.load(f)
 
-with open(r'../artifacts/xgb_model.pkl', 'rb') as f:
+with open(file_path, 'rb') as f:
     xgboost_model = joblib.load(f)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
