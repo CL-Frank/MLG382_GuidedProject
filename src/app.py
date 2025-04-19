@@ -12,15 +12,20 @@ from dash import Dash, html, dcc, Input, Output
 from functools import lru_cache
 import dash_bootstrap_components as dbc
 
+file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
+
 @lru_cache(maxsize=1)
 def get_DLmodel():
     print("Loading deep learning model...")
     return load_model(r'../artifacts/dl_model.h5')
 
-with open('../notebooks/features.pkl', 'rb') as f:
+# with open(r'../notebooks/features.pkl', 'rb') as f:
+#     features = pickle.load(f)
+
+with open(file_path, 'rb') as f:
     features = pickle.load(f)
 
-with open('../notebooks/scaler.pkl', 'rb') as f:
+with open(r'../notebooks/scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
 with open(r'../artifacts/rf_model.pkl', 'rb') as f:
