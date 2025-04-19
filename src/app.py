@@ -12,29 +12,33 @@ from dash import Dash, html, dcc, Input, Output
 from functools import lru_cache
 import dash_bootstrap_components as dbc
 
-file_path = os.path.join(os.path.dirname(__file__), '..', 'artifacts', 'features.pkl')
+file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
+BASE_DIR = os.path.dirname(__file__)
+ARTIFACTS_DIR = os.path.join(BASE_DIR, '..', 'artifacts')
 
+# Helper function to build file paths
+def get_artifact(filename):
+    return os.path.join(ARTIFACTS_DIR, filename)
+
+# Load models and resources
 @lru_cache(maxsize=1)
 def get_DLmodel():
     print("Loading deep learning model...")
-    return load_model(r'../artifacts/dl_model.h5')
+    return load_model(get_artifact('dl_model.h5'))
 
-# with open(r'../notebooks/features.pkl', 'rb') as f:
-#     features = pickle.load(f)
-
-with open(file_path, 'rb') as f:
+with open(get_artifact('features.pkl'), 'rb') as f:
     features = pickle.load(f)
 
-with open(file_path, 'rb') as f:
+with open(get_artifact('scaler.pkl'), 'rb') as f:
     scaler = pickle.load(f)
 
-with open(file_path, 'rb') as f:
+with open(get_artifact('rf_model.pkl'), 'rb') as f:
     randomforest_model = joblib.load(f)
 
-with open(file_path, 'rb') as f:
+with open(get_artifact('lr_model.pkl'), 'rb') as f:
     regression_model = joblib.load(f)
 
-with open(file_path, 'rb') as f:
+with open(get_artifact('xgb_model.pkl'), 'rb') as f:
     xgboost_model = joblib.load(f)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
