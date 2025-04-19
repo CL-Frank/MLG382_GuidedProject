@@ -1,0 +1,11 @@
+pickle
+gunicorn
+joblib
+numpy
+pandas
+scikit-learn
+tensorflow
+dash_bootstrap_components
+xgboost
+dash
+
