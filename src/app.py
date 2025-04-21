@@ -12,7 +12,7 @@ from dash import Dash, html, dcc, Input, Output
 from functools import lru_cache
 import dash_bootstrap_components as dbc
 
-file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
+# file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
 BASE_DIR = os.path.dirname(__file__)
 ARTIFACTS_DIR = os.path.join(BASE_DIR, '..', 'artifacts')
 
