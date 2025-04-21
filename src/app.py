@@ -165,13 +165,13 @@ app.layout = dbc.Container([
      Input('sports', 'value'),
      Input('music', 'value'),
      Input('volunteering', 'value'),
-     Input('gpa', 'value'),
+    #  Input('gpa', 'value'),
      Input('ethnicity', 'value'),
      Input('parental_education', 'value'),
      Input('parental_support', 'value')]
 )
-def predict_grade(n_clicks, age, gender,study_time, absences, tutoring,extracurricular, sports, music, volunteering, ethnicity, parental_education, parental_support, gpa):
-    if (n_clicks or 0) > 0 and None not in (age, gender, study_time, absences, ethnicity, parental_education, parental_support, gpa):
+def predict_grade(n_clicks, age, gender,study_time, absences, tutoring,extracurricular, sports, music, volunteering, ethnicity, parental_education, parental_support):
+    if (n_clicks or 0) > 0 and None not in (age, gender, study_time, absences, ethnicity, parental_education, parental_support):
         input_data = {
             'Age': [age],
             'Gender': [gender],
@@ -185,7 +185,7 @@ def predict_grade(n_clicks, age, gender,study_time, absences, tutoring,extracurr
             'Sports': [1 if sports and  1 in sports else 0],
             'Music': [1 if music and 1 in music else 0],
             'Volunteering': [1 if volunteering and 1 in volunteering else 0],
-            'GPA': [gpa],
+            # 'GPA': [gpa],
         }
          
         input_df = pd.DataFrame(input_data)
@@ -213,7 +213,7 @@ def predict_grade(n_clicks, age, gender,study_time, absences, tutoring,extracurr
         #  print(f'NEW 2 Features{data_encoded.columns}')
 
          
-        num_features = ['Age','StudyTimeWeekly', 'Absences', 'GPA', 'StudyTimePerAbsence', 'TotalExtracurricular']
+        num_features = ['Age','StudyTimeWeekly', 'Absences', 'StudyTimePerAbsence', 'TotalExtracurricular']
         data_encoded[num_features] = scaler.transform(data_encoded[num_features])
 
         #  for col in features:
@@ -223,10 +223,11 @@ def predict_grade(n_clicks, age, gender,study_time, absences, tutoring,extracurr
 
  
         output_df = data_encoded
+        output_df = output_df.drop('GradeClass', axis=1)
 
 
         #  print(f'Output Features{data_encoded.columns}')
-        print(output_df)
+        print(output_df.columns)
 
 
 
