@@ -25,11 +25,11 @@ This project uses multiple classification models—including Logistic Regression
 
 Models are trained and evaluated using scikit-learn and TensorFlow/Keras, and are saved in the artifacts/ directory.
 
-Model	Accuracy	Precision	Recall	F1 Score
-Logistic Regression	0.6722	0.6353	0.6722	0.6495
-Random Forest	0.6806	0.6660	0.6806	0.6610
-XGBoost	0.6806	0.6618	0.6806	0.6644
-Deep Learning	0.7300	0.7100	0.7300	0.7100
+Model	Accuracy	Precision	Recall	F1 Score  
+Logistic Regression	0.6722	0.6353	0.6722	0.6495  
+Random Forest	0.6806	0.6660	0.6806	0.6610  
+XGBoost	0.6806	0.6618	0.6806	0.6644  
+Deep Learning	0.7300	0.7100	0.7300	0.7100  
 
 ### Future Work
 - Add Explainable AI (XAI) using SHAP or LIME for transparency.
@@ -41,7 +41,7 @@ Deep Learning	0.7300	0.7100	0.7300	0.7100
 Team Name: Group H
 Contributors:
 
-Bianca Grobler 600537
-Adolph Jacobus van Coller 601005
-Caydan Frank 578131
-Renaldo Jardim 601333
+Bianca Grobler 600537  
+Adolph Jacobus van Coller 601005  
+Caydan Frank 578131  
+Renaldo Jardim 601333  
