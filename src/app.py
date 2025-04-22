@@ -12,7 +12,6 @@ from dash import Dash, html, dcc, Input, Output, State
 from functools import lru_cache
 import dash_bootstrap_components as dbc
 
-# file_path = os.path.join(os.path.dirname(__file__), '..', 'notebooks', 'features.pkl')
 BASE_DIR = os.path.dirname(__file__)
 ARTIFACTS_DIR = os.path.join(BASE_DIR, '..', 'artifacts')
 
@@ -79,7 +78,7 @@ app.layout = dbc.Container([
                         className="mb-3"
                     ),
                     
-                    dbc.Label("Study Time Weekly", className="text-center w-100"),
+                    dbc.Label("Study Time Weekly (Hours)", className="text-center w-100"),
                     dbc.Input(id='study_time', type='number', value= None, className="mb-3", placeholder='Enter Weekly Study Time'),
                     
                     dbc.Label("Absences", className="text-center w-100"),
